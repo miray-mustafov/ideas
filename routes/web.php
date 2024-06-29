@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 //Whenever you get a request to this url pass it to index method controller
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/terms', function(){
+    return view('terms');
+});
