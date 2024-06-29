@@ -1,1 +1,3 @@
 git rm --cached -r database/database.sqlite
+
+php artisan make:controller SomeController
