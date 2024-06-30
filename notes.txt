@@ -13,5 +13,12 @@ make migrations:
 php artisan migrate (to apply current migrations)
 php artisan make:migration create_ideas_table (to set up a migration table)
 
-make mode:
+make mode: # with php artisan make you can check the methods
 php artisan make:model Idea
+
+security stuff from Laravel:
+protected $fillable must be assigned to models if we want a convenient Model instance creation
+@csrf
+
+random errors:
+in form input tags  id parameter can make problems so use name instead of id
