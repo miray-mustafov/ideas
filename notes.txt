@@ -1,3 +1,17 @@
+delete unneccessary file from github:
 git rm --cached -r database/database.sqlite
 
+create controllers with command:
 php artisan make:controller SomeController
+
+create mysql databse:
+mysql -u root (-p password_if_present) #connects to the database
+>create database db_name
+>use db_name # focuses on the specified db
+
+make migrations:
+php artisan migrate (to apply current migrations)
+php artisan make:migration create_ideas_table (to set up a migration table)
+
+make mode:
+php artisan make:model Idea
