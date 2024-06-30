@@ -19,7 +19,9 @@ class IdeaController extends Controller
             'content'=> request()->get('idea', ''),// getting the current idea content from user
         ]);
 
-        return redirect()->route('dashboard');
+        //on the redirect object we put a route
+        //FLASH MESSAGES - with temporary session that is deleted after shown to the user
+        return redirect()->route('dashboard')->with('success','Idea created successfully!');
 
     }
 }
