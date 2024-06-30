@@ -27,4 +27,12 @@ class IdeaController extends Controller
         return redirect()->route('dashboard')->with('success','Idea created successfully!');
 
     }
+
+    public function destroy($id){
+        // ->first() returns null if no such object found but solution is ->firstOrFail
+        $idea=Idea::where('id',$id)->firstOrFail();//last one returns 404 if no such idea
+        $idea->delete();
+        return redirect()->route('dashboard')->with('success','Idea deleted.');
+
+    }
 }
