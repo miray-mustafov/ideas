@@ -3,8 +3,8 @@
     <form action="{{ route('ideas.store') }}" method="post">
         @csrf
         <div class="mb-3">
-            <textarea class="form-control" name="idea" rows="3"></textarea>
-            @error('idea') {{--if you have error for idea in the session--}}
+            <textarea class="form-control" name="content" rows="3"></textarea>
+            @error('content') {{--if you have error for idea in the session--}}
                 {{--the error directive will inject the $message for us--}}
                 <span class='fs-6 text-danger d-block mt-2'>{{$message}}</span>
             @enderror
