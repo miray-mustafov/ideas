@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class IdeaController extends Controller
 {
+    public function show(Idea $idea){
+        // Laravel automatically maps a variable with same name
+        // return view('ideas.show',compact('idea'));
+
+        return view('ideas.show',[
+            'idea'=>$idea
+        ]);
+    }
+
     public function store(){
         // dump($_POST); the vanilla php way
         // $idea=new Idea([
@@ -28,11 +37,18 @@ class IdeaController extends Controller
 
     }
 
-    public function destroy($id){
+    public function destroy(Idea $idea){
         // ->first() returns null if no such object found but solution is ->firstOrFail
-        $idea=Idea::where('id',$id)->firstOrFail();//last one returns 404 if no such idea
+
+        // 1.
+        // $idea=Idea::where('id',$id)->firstOrFail();//last one returns 404 if no such idea
+        // $idea->delete();
+
+        //2. Specify in the brackets the Model (Idea) so laravel binds idea object to $idea
         $idea->delete();
+
         return redirect()->route('dashboard')->with('success','Idea deleted.');
 
     }
+
 }

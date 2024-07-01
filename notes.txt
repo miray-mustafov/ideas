@@ -22,3 +22,6 @@ protected $fillable must be assigned to models if we want a convenient Model ins
 
 random errors:
 in form input tags  id parameter can make problems so use name instead of id
+
+controllers convention:
+https://laravel.com/docs/11.x/controllers#actions-handled-by-resource-controllers
