@@ -31,13 +31,12 @@ class IdeaController extends Controller
 
         // I believe that this validate method returns to the same template loading errors
         // that are accessible with the @error @enderror directive
-        request()->validate([ // required has premade validation rules from Laravel
+        $validated = request()->validate([ // required has premade validation rules from Laravel
             'content' => 'required|min:5|max:240',
         ]);
 
-        $idea = Idea::create([
-            'content' => request()->get('content', ''),// getting the current idea content from user
-        ]);
+        // validated is assarr with all the validated values
+        Idea::create($validated);// getting the current idea content from user
 
         //on the redirect object we put a route
         //FLASH MESSAGES - with temporary session that is deleted after shown to the user
@@ -68,12 +67,14 @@ class IdeaController extends Controller
 
     public function update(Idea $idea)
     {
-        request()->validate([
+        $validated=request()->validate([
             'content' => 'required|min:5|max:240',
         ]);
 
-        $idea->content = request()->get('content', '');
-        $idea->save();
+//        $idea->content = request()->get('content', '');
+//        $idea->save();
+        $idea->update($validated);
+
         return redirect()->route('ideas.show', $idea->id)->with('success', 'Idea updated successfully');
     }
 
