@@ -10,8 +10,8 @@ mysql -u root (-p password_if_present) #connects to the database
 >use db_name # focuses on the specified db
 
 make migrations:
-php artisan migrate (to apply current migrations)
 php artisan make:migration create_ideas_table (to set up a migration table)
+php artisan migrate (to apply current migrations)
 
 make mode: # with php artisan make you can check the methods
 php artisan make:model Idea
@@ -25,3 +25,6 @@ in form input tags  id parameter can make problems so use name instead of id
 
 controllers convention:
 https://laravel.com/docs/11.x/controllers#actions-handled-by-resource-controllers
+
+introduce new entity in the system:
+php artisan make:model Comment -m -c (making the model first then migrations and then controller)

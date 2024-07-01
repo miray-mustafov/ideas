@@ -14,4 +14,9 @@ class Idea extends Model
         'content',
         'likes',
     ];
+
+    public function comments(){
+        return $this->hasMany(Comment::class); //,foreignKey:'idea_id',localKey:'id'
+        // no need to specify that, if we use that convention laravel will figure it out
+    }
 }

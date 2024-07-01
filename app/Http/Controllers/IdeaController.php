@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class IdeaController extends Controller
         // return view('ideas.show',compact('idea'));
 
         return view('ideas.show', [
-            'idea' => $idea
+            'idea' => $idea,
         ]);
     }
 
