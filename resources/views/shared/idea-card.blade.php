@@ -13,7 +13,7 @@
                 <form action="{{route('ideas.destroy', $idea->id)}}" method='post'>
                     @csrf
                     @method('delete'){{--to show it as a delete req to laravel--}}
-                    <a class='mx-2'href="{{route('ideas.edit', $idea->id)}}">edit</a>
+                    <a class='mx-2' href="{{route('ideas.edit', $idea->id)}}">edit</a>
                     <a href="{{route('ideas.show', $idea->id)}}">view</a>
                     <button class="ms-1 btn btn-danger btn-sm">X</button>
                 </form>
