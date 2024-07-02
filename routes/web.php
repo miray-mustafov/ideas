@@ -3,7 +3,7 @@
 /*
 MVC - Model View Controller
 Controller : Handle requests
-Controller : Handle data logic and interactions with database
+Model : Handle data logic and interactions with database
 View : what is shown to the user (HTML/CSS/BladeFiles)
 */
 
