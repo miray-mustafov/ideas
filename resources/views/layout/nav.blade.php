@@ -19,7 +19,7 @@
 
                 @auth()
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">{{Auth::user()->name}}</a>
+                        <a class="nav-link" href="/profile">{{Auth::user()->name}}</a> {{--or auth()->id()--}}
                     </li>
                     <li class="nav-item">
                         <form action="{{route('logout')}}" method="post">
