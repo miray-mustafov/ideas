@@ -15,9 +15,14 @@ class Idea extends Model
     // for security purposes this is not put by default, it allows to fill the parameters
     protected $fillable = [
         'content',
+        'user_id',
         'likes',
     ];
 
+    public function user(){
+        // you could define the opposite in the User model hasMany
+        return $this->belongsTo(User::class);
+    }
     public function comments(){
         return $this->hasMany(Comment::class); //,foreignKey:'idea_id',localKey:'id'
         // no need to specify that, if we use that convention laravel will figure it out

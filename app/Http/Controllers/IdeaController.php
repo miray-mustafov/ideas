@@ -34,6 +34,7 @@ class IdeaController extends Controller
         $validated = request()->validate([ // required has premade validation rules from Laravel
             'content' => 'required|min:5|max:240',
         ]);
+        $validated['user_id'] = auth()->id();
 
         // validated is assarr with all the validated values
         Idea::create($validated);// getting the current idea content from user
@@ -46,6 +47,10 @@ class IdeaController extends Controller
 
     public function destroy(Idea $idea)
     {
+        if(auth()->id() !== $idea->user_id){
+            abort(403);
+        }
+
         // ->first() returns null if no such object found but solution is ->firstOrFail
 
         // 1.
@@ -61,12 +66,19 @@ class IdeaController extends Controller
 
     public function edit(Idea $idea)
     {
+        if(auth()->id() !== $idea->user_id){
+            abort(403);
+        }
         $editing = true;
         return view('ideas.show', compact('idea', 'editing'));
     }
 
     public function update(Idea $idea)
     {
+        if(auth()->id() !== $idea->user_id){
+            abort(403);
+        }
+
         $validated=request()->validate([
             'content' => 'required|min:5|max:240',
         ]);

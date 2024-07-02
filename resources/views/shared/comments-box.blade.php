@@ -9,8 +9,9 @@
             <button type="submit" class="btn btn-primary btn-sm"> Post Comment</button>
         </div>
     </form>
-    <hr>
+
     @foreach($idea->comments as $comment)
+    <hr>
 
     <div class="d-flex align-items-start">
         <img style="width:35px" class="me-2 avatar-sm rounded-circle"
