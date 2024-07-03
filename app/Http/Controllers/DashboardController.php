@@ -7,15 +7,16 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         // builds an Eloquent QUERY to fetch Idea models ordered by their created_at attribute in descending order
-        $ideas=Idea::orderBy('created_at','DESC');
+        $ideas = Idea::orderBy('created_at', 'DESC');
 
         // adds a where clause to filter the Idea models based on the content attribute.
-        if(request()->has('search')){
-            $search = '%'.request()->get('search','').'%';
-            $ideas=$ideas->where('content','like', $search);
+        if (request()->has('search')) {
+            $search = '%' . request()->get('search', '') . '%';
+            $ideas = $ideas->where('content', 'like', $search);
         }
 
         // 1. executes a SELECT COUNT(*) query to determine the total number of Idea records
@@ -26,7 +27,7 @@ class DashboardController extends Controller
         return view(
             'dashboard',
             [
-                'ideas'=> $ideas->paginate(4),
+                'ideas' => $ideas->paginate(4),
             ]
         );
     }
