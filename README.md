@@ -97,8 +97,6 @@ php artisan serve
 * And visit the website shown on the output
 ---
 ## Features:
-* authentication middleware is added to most of the routes
-to ensure that a logged-in user uses the key functionality
 
 - **Users**
     * Profile view
@@ -115,3 +113,9 @@ to ensure that a logged-in user uses the key functionality
 
 - **Comments**
     * Creation
+
+* authentication middleware is added to most of the routes
+to ensure that a logged-in user uses the key functionality
+* flash messages for success
+* pagination
+* simple search functionality
