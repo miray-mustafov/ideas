@@ -23,7 +23,6 @@ class IdeaController extends Controller
 
     public function store()
     {
-        // dump($_POST); the vanilla php way
         // $idea=new Idea([
         //     'content'=> request()->get('idea', ''),
         // ]);
@@ -31,23 +30,25 @@ class IdeaController extends Controller
 
         // I believe that this validate method returns to the same template loading errors
         // that are accessible with the @error @enderror directive
-        $validated = request()->validate([ // required has premade validation rules from Laravel
-            'content' => 'required|min:5|max:240',
+        $validated = request()->validate([
+            'content' => 'required|min:5|max:240', // required has premade validation rules from Laravel
         ]);
-        $validated['user_id'] = auth()->id();
+        $validated['user_id'] = auth()->id(); // Authorization
 
         // validated is assarr with all the validated values
         Idea::create($validated);// getting the current idea content from user
 
-        //on the redirect object we put a route
-        //FLASH MESSAGES - with temporary session that is deleted after shown to the user
+        // on the redirect object we put a route
+        // FLASH MESSAGES - with temporary session that is deleted after shown to the user
+        // with() is method provided by the RedirectResponse class.
+        // It allows you to store data in the session for the next request ONLY, making it ideal for flash messages
         return redirect()->route('dashboard')->with('success', 'Idea created successfully!');
 
     }
 
     public function destroy(Idea $idea)
     {
-        if(auth()->id() !== $idea->user_id){
+        if(auth()->id() !== $idea->user_id){ // Authorization
             abort(403);
         }
 
