@@ -15,13 +15,19 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', compact('user'));
+        if(auth()->id() !== $user->id){
+            abort(403);
+        }
+        $editing = true;
+        return view('users.show', compact('user','editing'));
     }
 
 
     public function update(User $user)
     {
-        //
+        if(auth()->id() !== $user->id){
+            abort(403);
+        }
     }
 
 }
