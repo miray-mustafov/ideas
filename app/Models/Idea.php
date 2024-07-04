@@ -24,7 +24,7 @@ class Idea extends Model
         return $this->belongsTo(User::class);
     }
     public function comments(){
-        return $this->hasMany(Comment::class); //,foreignKey:'idea_id',localKey:'id'
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'desc'); //,foreignKey:'idea_id',localKey:'id'
         // no need to specify that, if we use that convention laravel will figure it out
     }
 }
