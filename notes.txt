@@ -12,10 +12,13 @@ mysql -u root (-p password_if_present) #connects to the database
 make migrations:
 php artisan make:migration create_ideas_table (to set up a migration table)
 php artisan migrate (to apply current migrations)
-php artisan migrate:regresh (rolls down the changes and ups them again)
+php artisan migrate:refresh (rolls down the changes and ups them again)
 
 make mode: # with php artisan make you can check the methods
 php artisan make:model Idea
+
+make controller:
+php artisan make:controller NameController -r (--recource defines the methods)
 
 security stuff from Laravel:
 protected $fillable must be assigned to models if we want a convenient Model instance creation

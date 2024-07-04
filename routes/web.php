@@ -15,7 +15,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
-
+require __DIR__ . '/users.php';
 
 //Whenever you get a request to this url pass it to index method controller
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
@@ -36,8 +36,4 @@ Route::group(['prefix' => 'ideas/', 'as' => 'ideas.',], function () {
 
         Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
     });
-});
-
-Route::get('/terms', function () {
-    return view('terms');
 });
