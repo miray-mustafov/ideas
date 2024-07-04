@@ -57,4 +57,13 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class)->latest();// or ->orderBy('created_at', 'desc')
     }
 
+    //!!! Nice
+    public function getImageUrl()
+    {
+        if ($this->image) {
+            return url('storage/' . $this->image);
+        }
+        return "https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->name}";
+    }
+
 }

@@ -9,7 +9,11 @@
             @include('shared.success-message')
 
             <div class="mt-3">
-                @include('shared.user-card')
+                @if($editing ?? false)
+                    @include('shared.user-edit-card')
+                @else
+                    @include('shared.user-card')
+                @endif
             </div>
 
             <hr>

@@ -97,7 +97,7 @@ copy .env.example .env
 php artisan key:generate
 ```
 
-### 7. Link public with storage folder:
+### 7. Link public with storage folder so that Laravel is configured to see uploaded images:
 
 ```
 php artisan storage:link

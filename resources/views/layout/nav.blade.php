@@ -24,7 +24,7 @@
                     </li>
                     <li>
                         <img style="width:35px" class="me-2 avatar-sm rounded-circle"
-                             src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{Auth::user()->name}}"
+                             src="{{Auth::user()->getImageUrl()}}"
                              alt="{{Auth::user()->name}} Avatar">
                     </li>
                     <li class="nav-item">
