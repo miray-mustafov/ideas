@@ -24,8 +24,8 @@
                     </li>
                     <li>
                         <img style="width:35px" class="me-2 avatar-sm rounded-circle"
-                             src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{$idea->user->name}}"
-                             alt="{{$idea->user->name}} Avatar">
+                             src="https://api.dicebear.com/6.x/fun-emoji/svg?seed={{Auth::user()->name}}"
+                             alt="{{Auth::user()->name}} Avatar">
                     </li>
                     <li class="nav-item">
                         <form action="{{route('logout')}}" method="post">
