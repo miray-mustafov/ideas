@@ -50,7 +50,7 @@
                     </a> {{--SELECT COUNT(*) FROM ideas WHERE user_id = ?--}}
                     <a href="#" class="fw-light nav-link fs-6"> <span class="fas fa-comment me-1">
                                     </span> {{$user->comments()->count()}} </a>
-                </div
+                </div>
             </div>
 
         </form>
