@@ -7,7 +7,7 @@
                 <h3 class="text-center text-dark">Login</h3>
                 <div class="form-group mt-3">
                     <label for="email" class="text-dark">Email:</label><br>
-                    <input type="email" name="email" id="email" class="form-control">
+                    <input value='{{request('email','')}}' type="email" name="email" id="email" class="form-control">
                     @error('email')
                     <span class='fs-6 text-danger d-block mt-2'>{{$message}}</span>
                     @enderror
