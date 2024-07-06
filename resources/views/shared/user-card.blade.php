@@ -42,7 +42,17 @@
             {{--@auth() we could check for authentication within blade too but we have handled it with auth middleware --}}
             @if(auth()->id() !== $user->id)
                 <div class="mt-3">
-                    <button class="btn btn-primary btn-sm"> Follow</button>
+                    @if(Auth::user()->follows($user))
+                        <form method='post' action="{{route('users.unfollow',$user->id)}}">
+                            @csrf
+                            <button class="btn btn-danger btn-sm">UnFollow</button>
+                        </form>
+                    @else
+                        <form method='post' action="{{route('users.follow',$user->id)}}">
+                            @csrf
+                            <button class="btn btn-primary btn-sm">Follow</button>
+                        </form>
+                    @endif
                 </div>
             @endif
         </div>

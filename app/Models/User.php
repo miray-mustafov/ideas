@@ -56,6 +56,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class)->latest();// or ->orderBy('created_at', 'desc')
     }
+    public function followings()
+    {
+        return $this->belongsToMany(
+            User::class, 'follower_user', 'follower_id','user_id'
+        )-> withTimestamps();
+    }
+    public function followers()
+    {
+        return $this->belongsToMany(
+            User::class, 'follower_user', 'user_id','follower_id'
+        )-> withTimestamps();
+    }
+    public function follows(User $user){
+        return $this->followings()->where('user_id',$user->id)->exists();
+    }
 
     //!!! Nice
     public function getImageUrl()

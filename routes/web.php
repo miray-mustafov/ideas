@@ -11,7 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FollowerController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
@@ -37,3 +37,6 @@ Route::group(['prefix' => 'ideas/', 'as' => 'ideas.',], function () {
         Route::post('/{idea}/comments', [CommentController::class, 'store'])->name('comments.store');
     });
 });
+
+Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->middleware('auth')->name('users.follow');
+Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->middleware('auth')->name('users.unfollow');

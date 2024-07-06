@@ -50,14 +50,7 @@
                     </a> {{--SELECT COUNT(*) FROM ideas WHERE user_id = ?--}}
                     <a href="#" class="fw-light nav-link fs-6"> <span class="fas fa-comment me-1">
                                     </span> {{$user->comments()->count()}} </a>
-                </div>
-
-                {{--            @auth() we could check for authentication within blade too but we have handled it with auth middleware --}}
-                @if(auth()->id() !== $user->id)
-                    <div class="mt-3">
-                        <button class="btn btn-primary btn-sm"> Follow</button>
-                    </div>
-                @endif
+                </div
             </div>
 
         </form>

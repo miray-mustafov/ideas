@@ -41,7 +41,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard')->with('success', 'Login Successful!');
         }
 
-        return redirect()->route('dashboard')->withErrors(['email' => 'Login Failed!']);
+        return redirect()->route('login')->withErrors(['email' => 'Login Failed!']);
     }
 
     public function logout(){
