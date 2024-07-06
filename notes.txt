@@ -1,10 +1,10 @@
-delete unneccessary file from github:
+delete unnecessary file from github:
 git rm --cached -r database/database.sqlite
 
 create controllers with command:
 php artisan make:controller SomeController
 
-create mysql databse:
+create mysql database:
 mysql -u root (-p password_if_present) #connects to the database
 >create database db_name
 >use db_name # focuses on the specified db
@@ -18,7 +18,7 @@ make mode: # with php artisan make you can check the methods
 php artisan make:model Idea
 
 make controller:
-php artisan make:controller NameController -r (--recource defines the methods)
+php artisan make:controller NameController -r (--resource defines the methods)
 
 security stuff from Laravel:
 protected $fillable must be assigned to models if we want a convenient Model instance creation

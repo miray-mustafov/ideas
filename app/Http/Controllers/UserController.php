@@ -45,7 +45,7 @@ class UserController extends Controller
             $validated['image'] = $imagePath;
             // to delete the previous image
             if ($user->image) {
-                Storage::disk('public')->delete($user->image);
+                Storage::disk('public')->delete($user->image); // or ?? ''; to fix the error
             }
         }
 
