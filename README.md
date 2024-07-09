@@ -135,16 +135,18 @@ php artisan serve
 ## Features:
 
 - **Users**
-    * Profile view
     * Registration
     * Login/Logout
+    * Profile view/update
+    * Follow/Unfollow
 
 
 - **Ideas/Tweets**
-    * Idea View
+    * Idea view
     * Creation with validations
     * Update: owner can update
     * Deletion: owner can delete
+    * Searching by keywords within the tweets
 
 
 - **Comments**
@@ -153,5 +155,4 @@ php artisan serve
 * authentication middleware is added to most of the routes
   to ensure that a logged-in user uses the key functionality
 * flash messages for success
-* pagination
-* simple search functionality
+* db level pagination
