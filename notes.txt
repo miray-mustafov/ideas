@@ -32,3 +32,6 @@ https://laravel.com/docs/11.x/controllers#actions-handled-by-resource-controller
 
 introduce new entity in the system:
 php artisan make:model Comment -m -c (making the model first then migrations and then controller)
+
+debugbar:
+composer require barryvdh/laravel-debugbar --dev
