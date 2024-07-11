@@ -13,6 +13,11 @@ class Idea extends Model
     // protected $guarded=[]; => You can mass assign everything. But it's not advisable
 
     // for security purposes this is not put by default, it allows to fill the parameters
+
+//    protected $with =[
+//      'user:id,name,image', 'comments.user'
+//    ]; // you can specify which columns you want too with :id,name
+
     protected $fillable = [
         'content',
         'user_id',

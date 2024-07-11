@@ -11,7 +11,13 @@ class DashboardController extends Controller
     {
 
         // builds an Eloquent QUERY to fetch Idea models ordered by their created_at attribute in descending order
-        $ideas = Idea::orderBy('created_at', 'DESC');
+        $ideas = Idea::with('user', 'comments.user',)->orderBy('created_at', 'DESC');
+        // with is to eagerly load the Idea with its user, so we extract the idea and the user at the same time
+        // with one query, instead of making a query for the user later again bcs of the default lazy loading
+        // comments.user loads the idea's comments and the comments' user (make sure u have user rel in the com model)
+        // you can also define this in the Idea model
+        // opposite of with is without
+
 
         // adds a where clause to filter the Idea models based on the content attribute.
         if (request()->has('search')) {
